@@ -37,13 +37,13 @@ h1 {
     text-align: center;
     font-size: 70px;
     margin-bottom: 20px;
-    color: #ffffff; /* Cyan heading */
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
     text-align: center;
-    color: #e0e0e0; /* Light gray heading */
+    color: #e0e0e0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.4);
     padding: 15px;
@@ -53,7 +53,7 @@ h3 {
 h4 {
     text-align: center;
     margin-bottom: 20px;
-    color: #fdfdfd; /* Cyan heading */
+    color: #fdfdfd;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 8px;
@@ -75,7 +75,7 @@ h4 {
     border-radius: 4px;
     width: 200px;
     background-color: rgba(255, 255, 255, 0.3);
-    color: white; /* White text in input */
+    color: white;
 }
 
 #join-room button {
@@ -85,20 +85,19 @@ h4 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
 }
 
 #join-room button:hover {
-    background-color: #0502a8; /* Darker cyan on hover */
+    background-color: #0502a8;
 }
-
 
 #chat-area {
     width: 500px;
-    background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
 }
@@ -110,35 +109,35 @@ h4 {
     flex-grow: 1;
     overflow-y: auto;
     max-height: 300px;
-    color: #e0e0e0; /* Light gray messages */
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle message background */
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #messages::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 8px;
 }
 
 #messages::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2); /* Track background */
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
 
 #messages::-webkit-scrollbar-thumb {
-    background: #007bff; /* Thumb color */
+    background: #007bff;
     border-radius: 4px;
 }
 
 #messages::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; /* Thumb color on hover */
+    background: #0056b3;
 }
 
 #messages li {
     margin-bottom: 8px;
     padding: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle message separator */
-    background-color: rgba(0, 0, 0, 0.3); /* Darker message bubbles */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
 
@@ -146,12 +145,12 @@ h4 {
     list-style-type: none;
     padding: 5px;
     margin: 10px 0;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     max-height: 50px;
     overflow-y: auto;
-    color: #ffffff; /* Cyan user count */
-    background-color: rgba(0, 0, 0, 0.3); /* Darker background */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 #message-input-area {
@@ -162,11 +161,11 @@ h4 {
 #message-input {
     flex-grow: 1;
     padding: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     margin-right: 5px;
-    background-color: rgba(0, 0, 0, 0.4); /* Darker input background */
-    color: white; /* White text in input */
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
 }
 
 #message-input:focus {
@@ -176,32 +175,45 @@ h4 {
 }
 
 #send {
-    padding: 10px 15px; /* Increased padding */
-    background-color: #0400ff; /* Cyan button */
-    color: #000; /* Black text */
-    border: none;
-    border-radius: 6px; /* Slightly more rounded */
-    cursor: pointer;
-    font-weight:normal; /* Bold text */
-    text-transform: uppercase; /* Uppercase text */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    padding: 10px 15px;
+    background-color: #0400ff;
     color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
 }
 
 #send:hover {
-    background-color: #0502a8; /* Darker cyan on hover */
+    background-color: #0502a8;
 }
 
-#market-cap{
+#market-cap {
     text-align: center;
     width: 500px;
-    background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     color: #ffffff;
     margin-bottom: 20px;
     font-size: 30px;
+}
+
+#logo {
+    width: 500px;
+    height: auto;
+    /* display: block; */
+    margin: 0px auto; /* Reduced top/bottom margin */
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 150px;
+        margin: 5px auto; /* Reduced top/bottom margin */
+    }
 }
