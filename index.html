@@ -24,7 +24,7 @@
         <ul id="messages"></ul>
         <ul id="user-list"></ul>
         <input type="text" id="message-input">
-        <button onclick="sendMessage()">Send</button>
+        <button id="send" onclick="sendMessage()">Send</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -74,7 +74,7 @@
                 countLi.textContent = `Total users: ${users.length}`;
                 userList.appendChild(countLi);
             });
-            
+
             socket.on('error', (error) => {
                 alert(error);
             });
