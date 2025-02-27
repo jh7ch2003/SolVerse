@@ -1,5 +1,153 @@
-style.css
+@font-face {
+    font-family: 'Quantum'; /* Give your font a name */
+    src:url('fonts/Quantum.woff2') format('woff2'), /* Path to WOFF2 */
+        url('fonts/Quantum.woff') format('woff');  /* Path to WOFF */
+    font-weight: normal; 
+    font-style: normal; 
+    font-display: swap; 
+}   
 
-h1{
-    height: auto;
+@font-face {
+    font-family: 'Glitch'; /* Give your font a name */
+    src:url('fonts/GlitchGoblin.woff2') format('woff2'), /* Path to WOFF2 */
+        url('fonts/GlitchGoblin.woff') format('woff');  /* Path to WOFF */
+    font-weight: normal; /* Or whatever weight is appropriate */
+    font-style: normal; /* Or italic, etc. */
+    font-display: swap; /* Very important! */
+}   
+body {
+    font-family:"Glitch",'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("https://images.stockcake.com/public/4/b/2/4b293191-cf7d-4b7f-b5e5-2d3eb4a8c670_large/futuristic-city-visualization-stockcake.jpg"); /* Set background image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Prevent image repeating */
+    background-position: center; /* Center the image */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    color: white; /* Text color for better contrast */
+}
+
+h1 {
+    font-family: "Quantum";
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255); /* White heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+
+h3 {
+    text-align: center;
+    color: rgb(255, 255, 255); /* White heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent white */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+h4{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255); /* White heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#join-room {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* More visible shadow */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#join-room input {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #0051ff;
+    border-radius: 4px;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent input background */
+}
+
+#join-room button {
+    padding: 10px 15px;
+    background-color: #0400ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chat-area {
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* More visible shadow */
+    display: flex;
+    flex-direction: column;
+}
+
+#messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+    color: black; /* Black messages for better contrast */
+}
+
+#messages li {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+#user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    max-height: 100px;
+    overflow-y: auto;
+    color: black; /* Black user list text */
+}
+
+#message-input-area {
+    display: flex;
+    margin-top: 10px;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent input background */
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+#message-input-area button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
