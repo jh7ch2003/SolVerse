@@ -191,3 +191,17 @@ h4 {
 #send:hover {
     background-color: #0502a8; /* Darker cyan on hover */
 }
+
+#market-cap{
+    text-align: center;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 30px;
+}

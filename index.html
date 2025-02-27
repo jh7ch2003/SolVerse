@@ -3,8 +3,7 @@
 <head>
     <title>Chatroom</title>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
-    <link rel="stylesheet" href="style.css"> </head>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>SOLVERSE</h1>
@@ -19,6 +18,8 @@
         Display Name: <input type="text" id="display-name"><br>
         <button onclick="joinRoom()">Join</button>
     </div>
+    
+    <div id="market-cap" style="display:none;"></div>
 
     <div id="chat-area" style="display:none;">
         <ul id="messages"></ul>
@@ -27,88 +28,8 @@
         <button id="send" onclick="sendMessage()">Send</button>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        let roomId;
-        let displayName;
-
-        function joinRoom() {
-            roomId = document.getElementById('room-id').value;
-            displayName = document.getElementById('display-name').value;
-
-            if (roomId.trim() === "" || displayName.trim() === "") {
-                alert("Please enter both Room ID and Display Name.");
-                return;
-            }
-
-            socket.emit('joinRoom', { roomId, displayName });
-
-            socket.on('joinedRoom', (data) => {
-                document.getElementById('join-room').style.display = 'none';
-                document.getElementById('chat-area').style.display = 'block';
-
-                const messagesList = document.getElementById('messages');
-                data.messageHistory.forEach(msg => {
-                    displayMessage(`${msg.user}: ${msg.message}`);
-                });
-            });
-
-            socket.on('userJoined', (data) => {
-                displayMessage(`${data.displayName} has joined the chat.`);
-            });
-
-            socket.on('userLeft', (data) => {
-                displayMessage(`${data.displayName} has left the chat.`);
-            });
-
-            socket.on('chatMessage', (data) => {
-                displayMessage(`${data.user}: ${data.message}`);
-            });
-
-            socket.on('userList', (users) => {
-                const userList = document.getElementById('user-list');
-                userList.innerHTML = ''; // Clear the list
-
-                const countLi = document.createElement('li');
-                countLi.textContent = `Total users: ${users.length}`;
-                userList.appendChild(countLi);
-            });
-
-            socket.on('error', (error) => {
-                alert(error);
-            });
-
-            socket.on('disconnect', () => {
-                alert("You have been disconnected from the server.");
-                location.reload();
-            });
-        }
-
-        function sendMessage() {
-            const message = document.getElementById('message-input').value;
-            if (message.trim() !== "") {
-                socket.emit('chatMessage', message);
-                document.getElementById('message-input').value = '';
-            }
-        }
-
-        function displayMessage(message) {
-            const messagesList = document.getElementById('messages');
-            const newMessage = document.createElement('li');
-            const sanitizedMessage = DOMPurify.sanitize(message);
-            newMessage.innerHTML = sanitizedMessage;
-            messagesList.appendChild(newMessage);
-            messagesList.scrollTop = messagesList.scrollHeight;
-        }
-
-        document.getElementById('message-input').addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
-    </script>
-
     <h4>CA:</h4>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
