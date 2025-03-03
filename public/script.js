@@ -93,8 +93,11 @@ function joinRoom() {
 
     socket.on('joinedRoom', async (data) => {
         document.getElementById('join-room').style.display = 'none';
+        document.getElementById('logo').style.display = 'none';
         document.getElementById('chat-area').style.display = 'block';
         document.getElementById('market-cap').style.display = 'block';
+        document.getElementById('pic').style.display = 'block';
+
 
         const h3Elements = document.querySelectorAll('h3');
         h3Elements.forEach(h3 => {

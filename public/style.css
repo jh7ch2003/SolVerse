@@ -16,20 +16,27 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'science';
+    src: url('fonts/scientifica.woff2') format('woff2'),
+         url('fonts/scientifica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
-    font-family: "Glitch", 'Arial Narrow', Arial, sans-serif;
+    font-family: "science", 'Arial Narrow', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url("https://images.stockcake.com/public/4/b/2/4b293191-cf7d-4b7f-b5e5-2d3eb4a8c670_large/futuristic-city-visualization-stockcake.jpg");
+    background-image: url("gradient.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 h1 {
@@ -44,10 +51,11 @@ h1 {
 h3 {
     text-align: center;
     color: #e0e0e0;
+    font-size: 30px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.4);
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 h4 {
@@ -57,35 +65,40 @@ h4 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 8px;
+    font-size: 30px;
 }
 
 #join-room {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
     margin-bottom: 20px;
+    color: #fdfdfd;
+    font-size: 30px;
 }
 
 #join-room input {
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #0051ff;
-    border-radius: 4px;
+    border-radius: 15px;
     width: 200px;
     background-color: rgba(255, 255, 255, 0.3);
     color: white;
 }
 
 #join-room button {
-    padding: 10px 15px;
+    padding: 10px 30px;
     background-color: #0400ff;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: "science";
+    font-size: 25px;
 }
 
 #join-room button:hover {
@@ -96,7 +109,7 @@ h4 {
     width: 500px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
@@ -108,10 +121,10 @@ h4 {
     margin: 0;
     flex-grow: 1;
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 250px;
     color: #e0e0e0;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -121,12 +134,12 @@ h4 {
 
 #messages::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 #messages::-webkit-scrollbar-thumb {
     background: #007bff;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 #messages::-webkit-scrollbar-thumb:hover {
@@ -138,31 +151,33 @@ h4 {
     padding: 8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 #user-list {
     list-style-type: none;
     padding: 5px;
-    margin: 10px 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    border-radius: 15px;
     max-height: 50px;
+    max-width: 150px;
     overflow-y: auto;
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin:10px auto;
 }
 
 #message-input-area {
     display: flex;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 
 #message-input {
     flex-grow: 1;
     padding: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    border-radius: 15px;
     margin-right: 5px;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
@@ -179,11 +194,14 @@ h4 {
     background-color: #0400ff;
     color: #ffffff;
     border: none;
-    border-radius: 6px;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: normal;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
+    font-family: "science";
+    font-size: 15px;
+    margin: 10px auto;
 }
 
 #send:hover {
@@ -192,16 +210,16 @@ h4 {
 
 #market-cap {
     text-align: center;
-    width: 500px;
+    width: 400px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     color: #ffffff;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #logo {
@@ -210,10 +228,21 @@ h4 {
     /* display: block; */
     margin: 0px auto; /* Reduced top/bottom margin */
 }
+#pic{
+    width: 300px;
+    height: auto;
+    /* display: block; */
+    margin: 0px auto; /* Reduced top/bottom margin */
+}
+
 
 @media (max-width: 768px) {
     #logo {
         width: 150px;
+        margin: 5px auto; /* Reduced top/bottom margin */
+    }
+    #pic {
+        width: 70px;
         margin: 5px auto; /* Reduced top/bottom margin */
     }
 }
@@ -231,4 +260,9 @@ h4 {
 
 #social-links a:hover {
     text-decoration: underline; /* Add underline on hover */
+}
+
+#X {
+    width: 50px;
+    margin-bottom: 20px;
 }
