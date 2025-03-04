@@ -95,8 +95,9 @@ function joinRoom() {
         document.getElementById('join-room').style.display = 'none';
         document.getElementById('logo').style.display = 'none';
         document.getElementById('chat-area').style.display = 'block';
-        document.getElementById('market-cap').style.display = 'block';
-        document.getElementById('pic').style.display = 'block';
+        //document.getElementById('market-cap').style.display = 'block';
+        //document.getElementById('pic').style.display = 'block';
+        document.getElementById('hold').style.display = 'block';
 
 
         const h3Elements = document.querySelectorAll('h3');
