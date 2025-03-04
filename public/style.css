@@ -7,14 +7,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Glitch';
-    src: url('fonts/GlitchGoblin.woff2') format('woff2'),
-         url('fonts/GlitchGoblin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'science';
@@ -32,7 +24,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url("gradient.png");
+    background-image: url("PCBack.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -77,6 +69,11 @@ h4 {
     margin-bottom: 20px;
     color: #fdfdfd;
     font-size: 30px;
+    transition: background-color, box-shadow 0.5s ease;
+}
+#join-room:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow : 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 #join-room input {
@@ -97,16 +94,18 @@ h4 {
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    transition: font-size 0.3s ease;
     font-family: "science";
     font-size: 25px;
 }
 
 #join-room button:hover {
     background-color: #0502a8;
+    font-size: 30px;
 }
 
 #chat-area {
-    width: 500px;
+    width: 600px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 15px;
@@ -121,7 +120,7 @@ h4 {
     margin: 0;
     flex-grow: 1;
     overflow-y: auto;
-    max-height: 250px;
+    max-height: 275px;
     color: #e0e0e0;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -138,12 +137,12 @@ h4 {
 }
 
 #messages::-webkit-scrollbar-thumb {
-    background: #007bff;
+    background: #0a0c9e;
     border-radius: 15px;
 }
 
 #messages::-webkit-scrollbar-thumb:hover {
-    background: #0056b3;
+    background: #002b58;
 }
 
 #messages li {
@@ -170,7 +169,6 @@ h4 {
 
 #message-input-area {
     display: flex;
-    margin: 10px auto;
 }
 
 #message-input {
@@ -178,9 +176,10 @@ h4 {
     padding: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    margin-right: 5px;
+    width: 469px;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
+    
 }
 
 #message-input:focus {
@@ -198,14 +197,15 @@ h4 {
     cursor: pointer;
     font-weight: normal;
     text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    transition: background-color, font-size 0.3s ease;
     font-family: "science";
     font-size: 15px;
-    margin: 10px auto;
+    width: 85px;
 }
 
 #send:hover {
     background-color: #0502a8;
+    font-size: 18px;
 }
 
 #market-cap {
@@ -245,6 +245,12 @@ h4 {
         width: 70px;
         margin: 5px auto; /* Reduced top/bottom margin */
     }
+    #body {
+        background-image: url("MobileBack.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
 
 #social-links {
@@ -252,17 +258,12 @@ h4 {
     margin-top: 10px;
 }
 
-#social-links a {
-    color: white; /* Or any color you prefer */
-    text-decoration: none; /* Remove underlines from links */
-    margin: 0 10px; /* Add some spacing between links */
-}
-
-#social-links a:hover {
-    text-decoration: underline; /* Add underline on hover */
-}
-
 #X {
     width: 50px;
-    margin-bottom: 20px;
+    margin: 30px 0px;
+    transition: width 0.3s ease;
+}
+
+#X:hover{
+    width: 65px;
 }
