@@ -95,10 +95,11 @@ function joinRoom() {
         document.getElementById('join-room').style.display = 'none';
         document.getElementById('logo').style.display = 'none';
         document.getElementById('chat-area').style.display = 'block';
-        //document.getElementById('market-cap').style.display = 'block';
+        document.getElementById('bubble').style.display = 'block';
         //document.getElementById('pic').style.display = 'block';
         document.getElementById('hold').style.display = 'block';
 
+        document.querySelector("iframe").setAttribute("src",`https://trench.bot/bundles/${roomId}`)
 
         const h3Elements = document.querySelectorAll('h3');
         h3Elements.forEach(h3 => {
@@ -168,3 +169,11 @@ document.getElementById('message-input').addEventListener('keyup', (event) => {
         sendMessage();
     }
 });
+
+// Disable scroll wheel in iframe
+const iframe = document.querySelector('iframe');
+if (iframe) { // Check if the iframe exists
+    iframe.addEventListener('wheel', (event) => {
+        event.preventDefault();
+    });
+}

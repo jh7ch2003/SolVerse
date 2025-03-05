@@ -267,3 +267,11 @@ h4 {
 #X:hover{
     width: 65px;
 }
+
+iframe {
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    /* Add any other desired styles */
+    margin-top: 20px;
+}
+
