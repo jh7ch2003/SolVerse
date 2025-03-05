@@ -273,5 +273,26 @@ iframe {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
     /* Add any other desired styles */
     margin-top: 20px;
+    overflow: hidden;
+}
+
+#toggleButton {
+    padding: 10px 15px;
+    background-color: #0400ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: background-color, font-size 0.3s ease;
+    font-family: "science";
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#toggleButton:hover {
+    background-color: #0502a8;
+    font-size: 25px;
 }
 

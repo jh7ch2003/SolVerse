@@ -96,10 +96,13 @@ function joinRoom() {
         document.getElementById('logo').style.display = 'none';
         document.getElementById('chat-area').style.display = 'block';
         document.getElementById('bubble').style.display = 'block';
-        //document.getElementById('pic').style.display = 'block';
+        document.getElementById('chart').style.display = 'block';
         document.getElementById('hold').style.display = 'block';
+        document.getElementById('toggleButton').style.display = 'block';
 
-        document.querySelector("iframe").setAttribute("src",`https://trench.bot/bundles/${roomId}`)
+        document.getElementById("bubble").setAttribute("src",`https://trench.bot/bundles/${roomId}`)
+        document.getElementById("bubbleio").setAttribute("src",`https://app.bubblemaps.io/sol/token/${roomId}`)
+        document.getElementById("chart").setAttribute("src",`https://www.solanatracker.io/chart/embed/${roomId}`)
 
         const h3Elements = document.querySelectorAll('h3');
         h3Elements.forEach(h3 => {
@@ -113,6 +116,21 @@ function joinRoom() {
 
         updateMarketCap();
         intervalId = setInterval(updateMarketCap, 2000);
+    });
+
+    const toggleButton = document.getElementById('toggleButton');
+    const iframe = document.getElementById('bubble');
+    const iframeio = document.getElementById('bubbleio');
+
+    toggleButton.addEventListener('click', () => {
+        if (iframe.style.display === 'none') {
+            iframe.style.display = 'block'; // Show the iframe
+            iframeio.style.display = 'none';
+        } else {
+            iframe.style.display = 'none'; // Hide the iframe
+            iframeio.style.display = 'block';
+            
+        }
     });
 
     socket.on('userJoined', (data) => {
