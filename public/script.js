@@ -113,7 +113,7 @@ function joinRoom() {
         });
 
         updateMarketCap();
-        intervalId = setInterval(updateMarketCap, 2000);
+        intervalId = setInterval(updateMarketCap, 5000);
     });
 
 
@@ -172,10 +172,3 @@ document.getElementById('message-input').addEventListener('keyup', (event) => {
     }
 });
 
-// Disable scroll wheel in iframe
-const iframe = document.querySelector('iframe');
-if (iframe) { // Check if the iframe exists
-    iframe.addEventListener('wheel', (event) => {
-        event.preventDefault();
-    });
-}
