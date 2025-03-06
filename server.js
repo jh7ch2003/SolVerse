@@ -5,8 +5,18 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 2000;
+const helmet = require('helmet'); // Import Helmet
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    frameSrc: ["'self'", "app.bubblemaps.io"], // Add app.bubblemaps.io to frame-src
+    //connectSrc: ["'self'", "app.bubblemaps.io"], // Add app.bubblemaps.io to connect-src (if needed)
+    //imgSrc: ["'self'", "app.bubblemaps.io"], // Add app.bubblemaps.io to img-src (if needed)
+  },
+}));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
