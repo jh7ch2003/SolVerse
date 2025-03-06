@@ -8,7 +8,7 @@ function isValidSolanaAddress(address) {
     if (typeof address !== 'string') {
         return false;
     }
-    if (address.length !== 44 && address.length !== 64) {
+    if (address.length < 44) {
         return false;
     }
     const validChars = /^[1-9A-HJ-NP-Za-km-z]+$/;
@@ -109,7 +109,7 @@ function joinRoom() {
 
         const messagesList = document.getElementById('messages');
         data.messageHistory.forEach(msg => {
-            displayMessage(`${msg.user}: ${msg.message}`);
+            displayMessage(`<b>${msg.user}:</b> ${msg.message}`);
         });
 
         updateMarketCap();
@@ -126,7 +126,7 @@ function joinRoom() {
     });
 
     socket.on('chatMessage', (data) => {
-        displayMessage(`${data.user}: ${data.message}`);
+        displayMessage(`<b>${data.user}</b>: ${data.message}`);
     });
 
     socket.on('userList', (users) => {
@@ -134,7 +134,7 @@ function joinRoom() {
         userList.innerHTML = '';
 
         const countLi = document.createElement('li');
-        countLi.textContent = `Total users: ${users.length}`;
+        countLi.innerHTML = `<b>Total users: ${users.length}</b>`;
         userList.appendChild(countLi);
     });
 
