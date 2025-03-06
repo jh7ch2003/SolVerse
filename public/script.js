@@ -8,7 +8,7 @@ function isValidSolanaAddress(address) {
     if (typeof address !== 'string') {
         return false;
     }
-    if (address.length < 44) {
+    if (address.length < 36) {
         return false;
     }
     const validChars = /^[1-9A-HJ-NP-Za-km-z]+$/;
