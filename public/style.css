@@ -276,23 +276,3 @@ iframe {
     overflow: hidden;
 }
 
-#toggleButton {
-    padding: 10px 15px;
-    background-color: #0400ff;
-    color: #ffffff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: normal;
-    text-transform: uppercase;
-    transition: background-color, font-size 0.3s ease;
-    font-family: "science";
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-#toggleButton:hover {
-    background-color: #0502a8;
-    font-size: 25px;
-}
-
