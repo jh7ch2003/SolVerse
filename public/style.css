@@ -25,10 +25,11 @@ body {
     min-height: 100vh;
     margin: 0;
     background-image: url("PCBack.png");
-    background-size: cover;
+    background-size: cover; /* Or use 'contain' or specific dimensions */
     background-repeat: no-repeat;
     background-position: center;
     color: rgb(0, 0, 0);
+    background-attachment: fixed; /* Fix the background position */
 }
 
 h1 {
@@ -279,3 +280,17 @@ iframe {
     overflow: hidden;
 }
 
+
+#transition,
+#join-room,
+#logo,
+#X,
+h3,
+#chat-area {
+    transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
+}
+
+#transition,
+#chat-area {
+    opacity: 0; /*start hidden*/
+}

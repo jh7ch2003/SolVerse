@@ -2,7 +2,8 @@ const socket = io();
 let roomId;
 let displayName;
 let intervalId;
-const heliusApiKey = 'f5704630-83c9-4627-bffa-d7da240bf76c'; // Replace with your Helius API key
+
+
 
 function isValidSolanaAddress(address) {
     if (typeof address !== 'string') {
@@ -46,26 +47,20 @@ async function fetchMarketCap(address) {
 }
 
 async function getTokenInfo(address) {
-    const response = await fetch(`https://mainnet.helius-rpc.com/?api-key=${heliusApiKey}`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "jsonrpc": "2.0",
-            "id": "text",
-            "method": "getAsset",
-            "params": { id: address }
-        }),
-    });
-    const data = await response.json();
-    if(data && data.result && data.result.content && data.result.content.metadata){
-        return {
-            name: data.result.content.metadata.name,
-            symbol: data.result.content.metadata.symbol
+    try {
+        const response = await fetch(`/tokenInfo?address=${address}`); // Request the server
+        const data = await response.json();
+        if (data && data.name && data.symbol) {
+            return {
+                name: data.name,
+                symbol: data.symbol
+            };
+        } else {
+            return { name: "Name not found", symbol: "Symbol not found" };
         }
-    } else {
-        return {name: "Name not found", symbol: "Symbol not found"};
+    } catch (error) {
+        console.error("Error fetching token info:", error);
+        return { name: "Error", symbol: "Error" };
     }
 }
 
@@ -92,29 +87,61 @@ function joinRoom() {
     socket.emit('joinRoom', { roomId, displayName });
 
     socket.on('joinedRoom', async (data) => {
-        document.getElementById('join-room').style.display = 'none';
-        document.getElementById('logo').style.display = 'none';
-        document.getElementById('chat-area').style.display = 'block';
-        document.getElementById('bubble').style.display = 'block';
-        document.getElementById('chart').style.display = 'block';
-        document.getElementById('hold').style.display = 'block';
-
-        document.getElementById("bubble").setAttribute("src",`https://trench.bot/bundles/${roomId}`)
-        document.getElementById("chart").setAttribute("src",`https://www.solanatracker.io/chart/embed/${roomId}`)
-
+        // Fade out initial elements
+        document.getElementById('join-room').style.opacity = '0';
+        document.getElementById('logo').style.opacity = '0.3';
+        document.getElementById('X').style.opacity = '0';
         const h3Elements = document.querySelectorAll('h3');
         h3Elements.forEach(h3 => {
-            h3.style.display = 'none';
+            h3.style.opacity = '0';
         });
 
-        const messagesList = document.getElementById('messages');
-        data.messageHistory.forEach(msg => {
-            displayMessage(`<b>${msg.user}:</b> ${msg.message}`);
-        });
+        // Wait for fade out and then hide
+        setTimeout(() => {
+            document.getElementById('join-room').style.display = 'none';
+            document.getElementById('logo').style.display = 'none';
+            document.getElementById('X').style.display = 'none';
+            h3Elements.forEach(h3 => {
+                h3.style.display = 'none';
+            });
 
-        updateMarketCap();
-        intervalId = setInterval(updateMarketCap, 5000);
+            // Fade in transition video
+            const transitionVideo = document.getElementById('transition');
+            transitionVideo.style.display = 'block';
+            transitionVideo.style.opacity = '1';
+            transitionVideo.play();
+
+            // Fade out video and fade in chat elements simultaneously after video ends
+            transitionVideo.onended = () => {
+                transitionVideo.style.opacity = '0'; // Start fading out video
+
+                // Directly fade in chat elements
+                document.getElementById('X').style.display = 'block';
+                document.getElementById('chat-area').style.display = 'block';
+                document.getElementById('chat-area').style.opacity = '1';
+                document.getElementById('bubble').style.display = 'block';
+                document.getElementById('chart').style.display = 'block';
+                document.getElementById('hold').style.display = 'block';
+
+                document.getElementById("bubble").setAttribute("src", `https://trench.bot/bundles/${roomId}`);
+                document.getElementById("chart").setAttribute("src", `https://www.solanatracker.io/chart/embed/${roomId}`);
+
+                const messagesList = document.getElementById('messages');
+                data.messageHistory.forEach(msg => {
+                    displayMessage(`<b>${msg.user}:</b> ${msg.message}`);
+                });
+
+                updateMarketCap();
+                intervalId = setInterval(updateMarketCap, 5000);
+
+                // Hide video after fade out (optional: if you want to ensure it disappears after the fade)
+                setTimeout(() => {
+                    transitionVideo.style.display = 'none';
+                }, 500); // Match CSS transition duration
+            };
+        }, 500); // Match CSS transition duration
     });
+
 
 
     socket.on('userJoined', (data) => {
@@ -163,6 +190,12 @@ function displayMessage(message) {
     const sanitizedMessage = DOMPurify.sanitize(message);
     newMessage.innerHTML = sanitizedMessage;
     messagesList.appendChild(newMessage);
+
+    // Limit to 30 messages
+    while (messagesList.children.length > 30) {
+        messagesList.removeChild(messagesList.firstChild);
+    }
+
     messagesList.scrollTop = messagesList.scrollHeight;
 }
 
