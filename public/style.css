@@ -255,6 +255,9 @@ h4 {
         background-repeat: no-repeat;
         background-position: center;
     }
+    #transition {
+        display: none;
+    }
 }
 
 #social-links {
